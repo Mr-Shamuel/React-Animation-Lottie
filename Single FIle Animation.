@@ -1,0 +1,35 @@
+import React, { useState } from "react";
+import Lottie from "react-lottie";
+import animationData from "./animationData.json"; // Replace with your animation JSON file
+
+const App = () => {
+  const animationOptions = {
+    loop: true, // Set to true if you want the animation to loop
+    autoplay: true, // Set to true if you want the animation to play automatically
+    animationData: animationData, // Your animation JSON file
+  };
+
+  // State to control animation play/pause
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  // Function to toggle animation play/pause
+  const toggleAnimation = () => {
+    setIsPlaying(!isPlaying);
+  };
+  return (
+    <div>
+      <h1>Lottie Animation Example</h1>
+      <button onClick={toggleAnimation}>
+        {isPlaying ? "Pause Animation" : "Play Animation"}
+      </button>
+      <Lottie
+        options={animationOptions}
+        width={400} // Adjust the width of the animation
+        height={400} // Adjust the height of the animation
+        isStopped={!isPlaying} // Control animation play/pause
+      />
+    </div>
+  );
+};
+
+export default App;
