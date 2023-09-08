@@ -1,0 +1,33 @@
+// src/components/MultipleLottieAnimations.js
+
+import React from 'react';
+import Lottie from 'react-lottie';
+import animation1 from './animations/animation1.json'; // Replace with your animation JSON files
+import animation2 from './animations/animation2.json'; // Replace with your animation JSON files
+import animation3 from './animations/animation3.json'; // Replace with your animation JSON files
+
+const animations = [
+  { animationData: animation1, loop: true, autoplay: true },
+  { animationData: animation2, loop: true, autoplay: true },
+  { animationData: animation3, loop: true, autoplay: true },
+  // Add more animation objects as needed.
+];
+
+function MultipleLottieAnimations() {
+  return (
+    <div>
+      <h1>Multiple Lottie Animations</h1>
+      {animations.map((animation, index) => (
+        <div key={index}>
+          <Lottie
+            options={animation}
+            width={400} // Adjust the width of the animation
+            height={400} // Adjust the height of the animation
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default MultipleLottieAnimations;
